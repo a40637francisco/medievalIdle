@@ -1,0 +1,23 @@
+{
+  "name": "medievalidle",
+  "version": "1.0.0",
+  "description": "medievalIdle",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a40637francisco/medievalIdle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a40637francisco/medievalIdle/issues"
+  },
+  "homepage": "https://github.com/a40637francisco/medievalIdle#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "ws": "^6.0.0"
+  }
+}

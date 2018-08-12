@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="607808024912061">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="593569613342074" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Request URL" sid="860342608310223" type="AJAX">
+                    <param id="0" name="Tag">&quot;equipment&quot;</param>
+                    <param id="1" name="URL">&quot;https://raw.githubusercontent.com/a40637francisco/medievalIdle/master/equipment.xml&quot;</param>
+                </action>
+                <action id="0" name="Connect" sid="830433870310404" type="WebSocket">
+                    <param id="0" name="URL">&quot;ws://localhost:3000&quot;</param>
+                    <param id="1" name="Protocol (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="748834210411415">
+            <conditions>
+                <condition id="0" name="On completed" sid="622826099768704" type="AJAX">
+                    <param id="0" name="Tag">&quot;equipment&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Load" sid="620722835461969" type="Equipment">
+                    <param id="0" name="XML">AJAX.LastData</param>
+                </action>
+                <action id="0" name="Call function" sid="610544251125951" type="Function">
+                    <param id="0" name="Name">&quot;log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;equipment&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="321866086741079">
+            <conditions>
+                <condition id="0" name="On opened" sid="120462387413043" type="WebSocket" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="783076983356739" type="Function">
+                    <param id="0" name="Name">&quot;log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;connected&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="945595293708192" type="Function">
+                    <param id="0" name="Name">&quot;log&quot;</param>
+                    <param id="1" name="Parameter {n}">WebSocket.MessageText</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="871873544197979">
+            <conditions>
+                <condition id="0" name="On function" sid="288432535497966" type="Function">
+                    <param id="0" name="Name">&quot;log&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="173201065060984" type="log">
+                    <param id="0" name="Text">log.Text &amp; newline  &amp; Function.Param(0)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="448966622174970">
+            <conditions>
+                <condition id="0" name="On clicked" sid="525732536912026" type="Button" />
+            </conditions>
+            <actions>
+                <action id="2" name="Send text" sid="920937757896180" type="WebSocket">
+                    <param id="0" name="Data">&quot;message&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
